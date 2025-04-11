@@ -1,0 +1,96 @@
+2025/04/11 08:07:13.282614 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_dump -h localhost -U samba-17793 -p 5432 -d postgres -F c -f /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T08:07:13+05:30.dump
+2025/04/11 08:07:13.559916 log.go:39: INFO: PostgreSQL Backup Successful.
+ File: /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T08:07:13+05:30.dump
+ Time Taken: 276.427791ms
+2025/04/11 08:07:46.077155 log.go:47: INFO: Running Command = /opt/homebrew/opt/mysql@5.7/bin/mysqldump -h localhost -u root -P 3306 -p my_database
+2025/04/11 08:07:47.481725 log.go:39: INFO: MySQL Backup Successful.
+ File: /Users/samba-17793/Documents/backup/mysql_backup_2025-04-11T08:07:46+05:30.sql 
+ Time Taken: 1.404289959s
+2025/04/11 08:08:36.740108 log.go:47: INFO: Running Command = /opt/homebrew/bin/mongodump --uri=mongodb://localhost:27017 --out=/Users/samba-17793/Documents/backup/mongodb_backup_2025-04-11T08:08:36+05:30
+2025/04/11 08:08:36.859735 log.go:39: INFO: MongoDB Backup Successful.
+ Folder: /Users/samba-17793/Documents/backup/mongodb_backup_2025-04-11T08:08:36+05:30 
+ Time Taken: 118.789625ms
+2025/04/11 08:10:13.225540 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_restore -h localhost -U samba-17793 -p 5432 -d postgres /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T08:07:13+05:30.dump
+2025/04/11 08:10:13.280393 log.go:39: INFO: Restoring PostgreSQL done successfully with pg_backup_2025-04-11T08:07:13+05:30.dump
+ Time Taken: 54.104416ms
+2025/04/11 08:11:07.087449 log.go:47: INFO: Running Command = /opt/homebrew/opt/mysql@5.7/bin/mysql -h localhost -u root -P 3306 -p my_database
+2025/04/11 08:11:08.598668 log.go:39: INFO: Restoring MySQL done successfully with mysql_backup_2025-04-11T08:07:46+05:30.sql
+ Time Taken: 1.510477291s
+2025/04/11 08:11:59.152937 log.go:47: INFO: Running Command = /opt/homebrew/bin/mongorestore --uri=mongodb://localhost:27017 /Users/samba-17793/Documents/backup/mongodb_backup_2025-04-11T08:08:36+05:30
+2025/04/11 08:11:59.304035 log.go:39: INFO: Restoring MongoDB done successfully with mongodb_backup_2025-04-11T08:08:36+05:30
+ Time Taken: 149.838792ms
+2025/04/11 10:04:37.709828 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_dump -h localhost -U samba-17793 -p 5432 -d postgres -F c -f /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T10:04:37+05:30.dump
+2025/04/11 10:04:38.163883 log.go:39: INFO: postgres backup successful.
+ saved to:  
+ time taken: 453.737458ms
+2025/04/11 10:06:35.407660 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_dump -h localhost -U samba-17793 -p 5432 -d postgres -F c -f /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T10:06:35+05:30.dump
+2025/04/11 10:06:35.539245 log.go:39: INFO: postgres backup successful.
+ saved to: /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T10:06:35+05:30.dump 
+ time taken: 130.092875ms
+2025/04/11 10:17:53.687396 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_restore -h localhost -U samba-17793 -p 5432 -d postgres /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T08:07:13+05:30.dump
+2025/04/11 10:17:54.005491 log.go:43: ERROR: Failure:
+ - Error occurred while doing restore in the postgres: exit status 1
+ - At: 2025-04-11 10:17:54.005356 +0530 IST m=+21.575700084
+2025/04/11 10:19:16.093746 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_dump -h localhost -U samba-17793 -p 5432 -d postgres -F c -f /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T10:19:16+05:30.dump
+2025/04/11 10:19:16.218517 log.go:39: INFO: Success:
+ - postgres backup successful.
+ - Saved to: /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T10:19:16+05:30.dump 
+ - Time taken: 123.652125ms
+2025/04/11 10:21:24.340218 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_restore -h localhost -U samba-17793 -p 5432 -d postgres /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T10:19:16+05:30.dump
+2025/04/11 10:21:24.412346 log.go:39: INFO: Success:
+ - postgres restore successful.
+ - From backup: pg_backup_2025-04-11T10:19:16+05:30.dump 
+ - Time taken: 69.990875ms
+2025/04/11 11:02:52.995932 log.go:39: INFO: Global Context: &{       }
+2025/04/11 11:03:28.016473 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_dump -h localhost -U samba-17793 -p 5432 -d postgres -F c -f /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T11:03:28+05:30.dump
+2025/04/11 11:03:28.120714 log.go:39: INFO: Success:
+ - postgres backup successful.
+ - Saved to: /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T11:03:28+05:30.dump 
+ - Time taken: 104.0735ms
+2025/04/11 11:21:25.540506 log.go:39: INFO: Loaded Session Details
+2025/04/11 11:21:52.192738 log.go:39: INFO: Loaded Session Details
+2025/04/11 11:21:52.193225 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_dump -h localhost -U samba-17793 -p 5432 -d postgres -F c -f /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T11:21:52+05:30.dump
+2025/04/11 11:21:52.286031 log.go:39: INFO: Success:
+ - postgres backup successful.
+ - Saved to: /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T11:21:52+05:30.dump 
+ - Time taken: 92.692958ms
+2025/04/11 11:25:52.316966 log.go:39: INFO: Loaded Session Details
+2025/04/11 11:25:52.318701 log.go:47: INFO: Running Command = /opt/homebrew/opt/mysql@5.7/bin/mysqldump -h localhost -u root -P 3306 -p my_database
+2025/04/11 11:25:54.034696 log.go:39: INFO: Success:
+ - sql backup successful.
+ - Saved to: /Users/samba-17793/Documents/backup/mysql_backup_2025-04-11T11:25:52+05:30.sql 
+ - Time taken: 1.715831583s
+2025/04/11 17:57:09.376253 log.go:39: INFO: Loaded Session Details
+2025/04/11 17:57:09.378188 log.go:39: INFO: Successfully Connected to Postgres
+2025/04/11 17:57:09.381359 log.go:43: ERROR: unable to connect to the postgres
+2025/04/11 17:58:39.249489 log.go:39: INFO: Loaded Session Details
+2025/04/11 17:58:39.251837 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_dump -h localhost -U samba-17793 -p 5432 -d postgres -F c -f /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T17:58:39+05:30.dump
+2025/04/11 17:58:39.272952 log.go:43: ERROR: Failure:
+ - Error occurred while doing backup in the postgres: exit status 1
+ - At: 2025-04-11 17:58:39.27291 +0530 IST m=+0.025234751
+2025/04/11 18:00:48.607623 log.go:39: INFO: Loaded Session Details
+2025/04/11 18:00:48.608304 log.go:39: INFO: Successfully Connected to Postgres
+2025/04/11 18:00:48.612718 log.go:43: ERROR: unable to connect to the postgres
+2025/04/11 18:02:19.951406 log.go:39: INFO: Loaded Session Details
+2025/04/11 18:02:19.951958 log.go:39: INFO: Successfully Connected to Postgres
+2025/04/11 18:02:19.955589 log.go:43: ERROR: unable to connect to the postgres
+2025/04/11 18:03:27.164050 log.go:39: INFO: Loaded Session Details
+2025/04/11 18:03:27.165536 log.go:39: INFO: Successfully Connected to Postgres
+2025/04/11 18:03:27.169963 log.go:43: ERROR: unable to connect to the postgres
+2025/04/11 18:03:31.477420 log.go:39: INFO: Loaded Session Details
+2025/04/11 18:03:31.477750 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_dump -h localhost -U samba-17793 -p 5432 -d postgres -F c -f /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T18:03:31+05:30.dump
+2025/04/11 18:03:31.952505 log.go:39: INFO: Success:
+ - postgres backup successful.
+ - Saved to: /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T18:03:31+05:30.dump 
+ - Time taken: 474.618708ms
+2025/04/11 18:03:57.632054 log.go:39: INFO: Loaded Session Details
+2025/04/11 18:04:09.270366 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_restore -h localhost -U samba-17793 -p 5432 -d postgres /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T18:03:31+05:30.dump
+2025/04/11 18:04:09.307821 log.go:43: ERROR: Failure:
+ - Error occurred while doing restore in the postgres: exit status 1
+ - At: 2025-04-11 18:04:09.307767 +0530 IST m=+11.681426917
+2025/04/11 18:04:55.949271 log.go:39: INFO: Loaded Session Details
+2025/04/11 18:05:02.615907 log.go:47: INFO: Running Command = /opt/homebrew/bin/pg_restore -h localhost -U samba-17793 -p 5432 -d postgres /Users/samba-17793/Documents/backup/pg_backup_2025-04-11T18:03:31+05:30.dump
+2025/04/11 18:05:02.666694 log.go:39: INFO: Success:
+ - postgres restore successful.
+ - From backup: pg_backup_2025-04-11T18:03:31+05:30.dump 
+ - Time taken: 49.876667ms
