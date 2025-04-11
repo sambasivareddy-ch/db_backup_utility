@@ -12,8 +12,8 @@ import (
 )
 
 // ScheduleBackup function to schedule the backup using cron
-func ScheduleBackup(cronExpr, operation, dbtype string) {
-	c := cron.New(cron.WithSeconds())
+func ScheduleBackup(cronExpr, operation string) {
+	c := cron.New()
 
 	context.LoadSession()
 
@@ -21,7 +21,7 @@ func ScheduleBackup(cronExpr, operation, dbtype string) {
 		fmt.Println("Scheduled Backup Started")
 		switch operation {
 		case "backup":
-			switch dbtype {
+			switch context.GlobalSessionCtx.DBType {
 			case "postgres":
 				backup.BackupPostgreSQL(*context.GlobalSessionCtx)
 			case "sql":
@@ -30,7 +30,7 @@ func ScheduleBackup(cronExpr, operation, dbtype string) {
 				fmt.Println("Unsupported Database Type")
 			}
 		case "restore":
-			switch dbtype {
+			switch context.GlobalSessionCtx.DBType {
 			case "postgres":
 				backup.RestorePostgreSQL(*context.GlobalSessionCtx)
 			case "sql":
@@ -60,8 +60,5 @@ func ScheduleBackup(cronExpr, operation, dbtype string) {
 
 func IsValidCron(cronExpr string) bool {
 	_, err := cron.ParseStandard(cronExpr)
-	if err != nil {
-		return false
-	}
-	return true
+	return err == nil
 }
