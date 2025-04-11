@@ -7,7 +7,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var cronSchedule, operation, dbtype string
+var cronSchedule, operation string
 
 var scheduleCmd = &cobra.Command{
 	Use:   "schedule",
@@ -15,7 +15,7 @@ var scheduleCmd = &cobra.Command{
 	Long:  "Schedule a backup task for a specific database at a given time",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Scheduling a backup task...")
-		if cronSchedule == "" || operation == "" || dbtype == "" {
+		if cronSchedule == "" || operation == "" {
 			fmt.Println("Please provide a valid cron schedule, operation, and database type.")
 			return
 		}
@@ -25,7 +25,7 @@ var scheduleCmd = &cobra.Command{
 			return
 		}
 		// Call the backup function with the provided cron schedule and operation
-		cron.ScheduleBackup(cronSchedule, operation, dbtype)
+		cron.ScheduleBackup(cronSchedule, operation)
 	},
 }
 
@@ -33,11 +33,9 @@ func init() {
 	// Define flags for the schedule command
 	scheduleCmd.Flags().StringVarP(&cronSchedule, "cron", "c", "", "Cron schedule expression (e.g., '0 0 * * *')")
 	scheduleCmd.Flags().StringVarP(&operation, "operation", "o", "", "Operation to perform (backup/restore)")
-	scheduleCmd.Flags().StringVarP(&dbtype, "dbtype", "d", "", "Database type (e.g., postgres, mysql)")
 
 	scheduleCmd.MarkFlagRequired("cron")
 	scheduleCmd.MarkFlagRequired("operation")
-	scheduleCmd.MarkFlagRequired("dbtype")
 
 	// Append 'schedule' command to root
 	rootCmd.AddCommand(scheduleCmd)
