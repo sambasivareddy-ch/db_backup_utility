@@ -23,8 +23,6 @@ import (
 	@params: file - The file name of the backup/restore file
 */
 func ExecuteCommand(command *exec.Cmd, operation, dbType, file string) {
-	logging.Logger.LogCommand(command.String()) // Print the command about to run
-
 	start_time := time.Now()
 
 	color.Blue("🔧 Starting %s %s...", dbType, operation)

@@ -26,8 +26,6 @@ func PingPG(params *context.DBSessionContext) error {
 		params.DBName,
 	)
 
-	fmt.Println(dsn)
-
 	db, err := sql.Open("postgres", dsn)
 	if err != nil {
 		logging.Logger.LogError("Unable to connect to Postgres")
