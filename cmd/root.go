@@ -6,7 +6,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// Root Command
+/*
+	rootCmd represents the root command
+	Usage: db_backup_utility
+	Description: This command is used to manage database backups and restores.
+*/
 var rootCmd = &cobra.Command{
 	Use:   "root",
 	Short: "Supports Database Backup Utility",

@@ -11,7 +11,15 @@ import (
 	"github.com/sambasivareddy-ch/db_backup_utility/pkg/logging"
 )
 
-// ScheduleBackup function to schedule the backup using cron
+/*
+	ScheduleBackup function to schedule the backup and restore operations
+	This function takes a cron expression and an operation type (backup/restore)
+	and schedules the corresponding operation using the cron library.
+	It uses the cron expression to determine when to run the operation.
+	It uses the context package to load the session context and perform the operation.
+	Note: The cron expression should be in the format of a standard cron expression.
+	For example, "0 0 * * *" means every day at midnight.
+*/
 func ScheduleBackup(cronExpr, operation string) {
 	c := cron.New()
 
@@ -58,6 +66,12 @@ func ScheduleBackup(cronExpr, operation string) {
 	select {}
 }
 
+/*
+	IsValidCron function to validate the cron expression
+	This function takes a cron expression as input and checks if it is valid.
+	It uses the cron library to parse the expression and returns true if it is valid,
+	and false otherwise.
+*/
 func IsValidCron(cronExpr string) bool {
 	_, err := cron.ParseStandard(cronExpr)
 	return err == nil

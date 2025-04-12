@@ -10,6 +10,13 @@ import (
 	_ "github.com/lib/pq"
 )
 
+/*
+	Utility function to Ping the PostgreSQL Database
+	@params: params - DBSessionContext
+	This function is used to check the connection to the PostgreSQL database.
+	It takes the database connection parameters from the context and attempts to connect to the database.
+	If the connection is successful, it returns nil. Otherwise, it returns an error.
+*/
 func PingPG(params *context.DBSessionContext) error {
 	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		params.DBHost,

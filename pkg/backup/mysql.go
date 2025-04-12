@@ -12,7 +12,13 @@ import (
 	"github.com/sambasivareddy-ch/db_backup_utility/pkg/logging"
 )
 
-// Utility function to Backup the SQL using mysqldump
+/*
+	Utility function to Backup the MySQL using mysqldump
+	This function creates a backup of the MySQL database using the mysqldump command.
+	It takes the database connection parameters from the context and creates a backup file in the specified directory.
+	The backup file is named with the current timestamp to ensure uniqueness.
+	The backup file is created in the format mysql_backup_<timestamp>.sql.
+*/
 func BackupMySQL(params context.DBSessionContext) {
 	current_time := time.Now().Format(time.RFC3339)
 	backup_file := fmt.Sprintf("%s/mysql_backup_%s.sql", params.BackupDir, current_time)
@@ -38,7 +44,11 @@ func BackupMySQL(params context.DBSessionContext) {
 	executor.ExecuteCommand(backupCommand, "backup", params.DBType, backup_file)
 }
 
-// Utility function to restore the SQL using sql
+/*
+	Utility function to Restore the MySQL using mysql
+	This function restores the MySQL database from a backup file.
+	It takes the database connection parameters from the context and reads the backup file.
+*/
 func RestoreMySQL(params context.DBSessionContext) {
 	backupFileContent, err := os.ReadFile(params.BackupDir + "/" + params.RestoreFile)
 	if err != nil {

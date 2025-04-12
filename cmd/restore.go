@@ -10,13 +10,21 @@ import (
 	"github.com/spf13/cobra"
 )
 
+/*
+	restoreCmd represents the restore command
+	Usage: db_backup_utility restore
+	Description: This command is used to restore databases like PostgreSQL and MySQL.
+*/
 var restoreCmd = &cobra.Command{
 	Use:   "restore",
 	Short: "Backup Restore Command",
 	Long:  "Helps to restore the database based on provided backup file",
 	Run: func(cmd *cobra.Command, args []string) {
+		// Load DB Information
 		context.LoadSession()
 
+		// Get the Restore File Path from the user
+		// This will be used to restore the database
 		utils.RunRestoreInteractiveInputTerminal(context.GlobalSessionCtx)
 
 		switch context.GlobalSessionCtx.DBType {

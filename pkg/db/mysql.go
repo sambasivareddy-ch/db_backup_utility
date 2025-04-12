@@ -10,6 +10,13 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
+/*
+	Utility function to Ping the MySQL Database
+	@params: params - DBSessionContext
+	This function is used to check the connection to the MySQL database.
+	It takes the database connection parameters from the context and attempts to connect to the database.
+	If the connection is successful, it returns nil. Otherwise, it returns an error.
+*/
 func PingSQL(params *context.DBSessionContext) error {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s",
 		params.DBUsername,

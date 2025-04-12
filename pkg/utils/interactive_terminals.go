@@ -8,6 +8,11 @@ import (
 	"github.com/AlecAivazis/survey/v2"
 )
 
+/*
+	RunConfigInteractiveInputTerminal
+	This function is used to get the configuration details from the user.
+	It takes the database connection parameters from the user, backup dir and saves them to the context.
+*/
 func RunConfigInteractiveInputTerminal(config *context.DBSessionContext) {
 	survey.AskOne(&survey.Select{
 		Message: "Select database type:",
@@ -43,6 +48,12 @@ func RunConfigInteractiveInputTerminal(config *context.DBSessionContext) {
 	}, &config.BackupDir, survey.WithValidator(IsDirExists))
 }
 
+/*
+	RunRestoreInteractiveInputTerminal
+	This function is used to get the restore file from the user.
+	It takes the backup directory path from the user and lists all the files in the directory.
+	It gives the user a chance to select one of them.
+*/
 func RunRestoreInteractiveInputTerminal(restoreParams *context.DBSessionContext) {
 	// Now get all backup file in provided Backup folder and
 	// Give the user chance to select one of them.
@@ -61,6 +72,11 @@ func RunRestoreInteractiveInputTerminal(restoreParams *context.DBSessionContext)
 	}
 }
 
+/*
+	GetDefaultPort
+	This function returns the default port for the given database type.
+	It takes the database type as input and returns the default port as a string.
+*/
 func GetDefaultPort(dbType string) string {
 	if dbType == "postgres" {
 		return "5432"

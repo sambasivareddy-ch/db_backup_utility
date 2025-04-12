@@ -1,4 +1,4 @@
-// Backup Command
+// Backup Command for DB Backup Utility
 package cmd
 
 import (
@@ -10,6 +10,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
+/*
+	backupCmd represents the backup command
+	Usage: db_backup_utility backup
+	Description: This command is used to backup databases like PostgreSQL and MySQL.
+*/
 var backupCmd = &cobra.Command{
 	Use:   "backup",
 	Short: "Command to backup",

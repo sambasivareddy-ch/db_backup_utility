@@ -11,6 +11,17 @@ import (
 	"github.com/fatih/color"
 )
 
+/*
+	Utility function to Execute the command
+	This function takes the command to be executed, the operation type (backup/restore),
+	and the database type (MySQL/PostgreSQL).
+	It runs the command and logs the output.
+	It also sends a notification to Discord with the success or failure message.
+	@params: command - The command to be executed
+	@params: operation - The type of operation (backup/restore)
+	@params: dbType - The type of database (MySQL/PostgreSQL)
+	@params: file - The file name of the backup/restore file
+*/
 func ExecuteCommand(command *exec.Cmd, operation, dbType, file string) {
 	logging.Logger.LogCommand(command.String()) // Print the command about to run
 
