@@ -153,6 +153,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 This project was inspired by the need for efficient database management tools and the contributions of the open-source community.
 
 ## Contact Information
-For any questions or feedback, please contact:
-Email Address: sambachinta.24@gmail.com
+### For any questions or feedback, please contact
+Email Address: sambachinta.24@gmail.com <br>
 LinkedIn: [Sambasiva Reddy Chinta](https://www.linkedin.com/in/samba-siva-reddy-ch/)
